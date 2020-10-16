@@ -11,6 +11,12 @@ public class Item {
         created = LocalDateTime.now();
     }
 
+    public Item(int id) {
+    }
+
+    public Item(int id, String name) {
+    }
+
     public int getId() {
         return id;
     }
