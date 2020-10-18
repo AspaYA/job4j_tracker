@@ -6,12 +6,12 @@ public class Engineer extends Profession {
 
     private String typeArea;
 
-    public Engineer( String name, String surname, String education, LocalDate birthday){
+    public Engineer(String name, String surname, String education, LocalDate birthday) {
         super(name, surname, education, birthday);
     }
 
-    public Engineer(String typeArea,  String name, String surname, String education, LocalDate birthday){
-        this(name, surname,education, birthday);
+    public Engineer(String typeArea,  String name, String surname, String education, LocalDate birthday) {
+        this(name, surname, education, birthday);
         this.typeArea = "typeArea";
     }
 }
