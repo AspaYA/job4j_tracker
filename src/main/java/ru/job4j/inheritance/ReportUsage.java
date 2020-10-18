@@ -6,7 +6,11 @@ public class ReportUsage {
         TextReport report = new TextReport();
         System.out.println(report.generate("Report's name", "Report's body"));
         System.out.println();
+
         HtmlReport report1 = new HtmlReport();
         System.out.println(report1.generate("Report's name", "Report's body"));
+
+        JSONReport report2 = new JSONReport();
+        System.out.println(report2.generate("Report's name", "Report's body"));
     }
 }
