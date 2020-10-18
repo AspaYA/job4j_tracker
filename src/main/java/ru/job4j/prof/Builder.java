@@ -6,10 +6,12 @@ public class Builder extends Engineer {
 
     private String endBuild;
 
-    public Builder(String endBuild, String typeArea, String name, String surname, String education, LocalDate birthday){
-        super(typeArea, name, surname, education, birthday);
+    public Builder(String endBuild){
+        this("typeArea", "name", "surname", "education", null);
         this.endBuild = endBuild;
     }
 
-
+    public Builder(String typeArea, String name, String surname, String education, LocalDate birthday){
+        super(typeArea, name, surname, education, birthday);
+    }
 }

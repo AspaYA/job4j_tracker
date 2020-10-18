@@ -24,12 +24,6 @@ public class Profession {
         return birthday;
     }
 
-//   public Profession(){
-//        name = "none";
-//        surname = "none";
-//        education = "none";
-//   }
-
    public Profession(String name, String surname, String education, LocalDate birthday) {
         this.name = name;
         this.surname = surname;

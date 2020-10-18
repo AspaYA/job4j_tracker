@@ -10,8 +10,12 @@ public class Dentist extends Doctor {
 
     }
 
-    public Dentist(int removeTooth, String stage, String name, String surname, String education, LocalDate birthday){
-        super(stage, name, surname, education, birthday);
+    public Dentist(int removeTooth){
+        this("stage", "name", "surname", "education", null);
         this.removeTooth = removeTooth;
+    }
+
+    public Dentist(String stage, String name, String surname, String education, LocalDate birthday){
+        super(stage, name, surname, education, birthday);
     }
 }

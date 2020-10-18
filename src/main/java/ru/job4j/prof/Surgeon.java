@@ -10,8 +10,12 @@ public class Surgeon extends Doctor {
 
     }
 
-    public Surgeon(int killCase, String stage, String name, String surname, String education, LocalDate birthday){
-        super(stage, name, surname, education, birthday);
+    public Surgeon(int killCase){
+        this("stage", "name", "surname", "education", null);
         this.killCase = killCase;
+    }
+
+    public Surgeon(String stage, String name, String surname, String education, LocalDate birthday){
+        super(stage, name, surname, education, birthday);
     }
 }
