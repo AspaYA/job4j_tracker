@@ -9,19 +9,21 @@ public class Item {
 
     public Item() {
         created = LocalDateTime.now();
-        System.out.println("run Constructor 0 arg");
     }
 
     public Item(int id) {
         this();
         this.id = id;
-        System.out.println("run Constructor 1 arg");
     }
 
     public Item(int id, String name) {
         this(id);
         this.name = name;
-        System.out.println("run Constructor 2 arg");
+    }
+
+    public Item(String name) {
+        this();
+        this.name = name;
     }
 
     public int getId() {
