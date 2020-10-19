@@ -13,10 +13,9 @@ public class StartUI {
         tracker.add(new Item("one"));
         tracker.add(new Item("two"));
         tracker.add(new Item("oops"));
-        System.out.println("tracker.getIds(): " + tracker.getIds());
-        System.out.println("tracker.getSize(): " + tracker.getSize());
-
-        System.out.println("tracker.getItems().length: " + tracker.getItems().length);
+//        System.out.println("tracker.getIds(): " + tracker.I());
+//        System.out.println("tracker.getSize(): " + tracker.getSize());
+//        System.out.println("tracker.getItems().length: " + tracker.getItems().length);
         System.out.println("tracker.findAll().length: " + tracker.findAll().length);
         System.out.println("tracker.findByName(\"oops\"): " + tracker.findByName("oops").length);
         System.out.println("tracker.findByName(\"oops1\"): " + tracker.findByName("oops1").length);
