@@ -30,10 +30,6 @@ public class Item {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public LocalDateTime getCreated() {
         return created;
     }
@@ -63,5 +59,9 @@ public class Item {
     @Override
     public String toString() {
         return "Item{" + "id=" + id + ", name='" + name + '\'' + ", created=" + created + '}';
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
