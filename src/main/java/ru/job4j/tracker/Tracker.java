@@ -67,4 +67,13 @@ public class Tracker {
         return rsl;
     }
 
+    public static String itemsToString(Item[] items) {
+        String rsl = "";
+        for (Item item: items) {
+            rsl = rsl + System.lineSeparator() + item.toString();
+        }
+        rsl = (rsl == "") ? "no Data" : rsl;
+        return rsl;
+    }
+
 }
