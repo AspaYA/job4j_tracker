@@ -90,7 +90,7 @@ public class StartUI {
         System.out.print("Enter Id: ");
         int id =  Integer.valueOf(scanner.nextLine());
         Item item = tracker.findById(id);
-        System.out.println((item != null) ? item.toString() : "not found id:" + id);
+        System.out.println((item != null) ? item : "not found id:" + id);
     }
 
     private void showItem5(Scanner scanner, Tracker tracker) {

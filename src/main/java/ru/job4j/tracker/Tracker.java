@@ -70,7 +70,7 @@ public class Tracker {
     public static String itemsToString(Item[] items) {
         String rsl = "";
         for (Item item: items) {
-            rsl = rsl + System.lineSeparator() + item.toString();
+            rsl = rsl + System.lineSeparator() + item;
         }
         rsl = (rsl == "") ? "no Data" : rsl;
         return rsl;
