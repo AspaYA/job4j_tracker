@@ -4,12 +4,12 @@ package ru.job4j.tracker;
 
 public class StartUI {
 
-    public void init(Input input, Tracker tracker) {
+    public static void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
-            this.showMenu();
+            showMenu();
             System.out.println("Select: ");
-            int select = Integer.valueOf(input.askStr("msg"));
+            int select = Integer.valueOf(input.askStr(""));
             switch (select) {
                 case 0:
                     showItem0(input, tracker);
@@ -45,7 +45,7 @@ public class StartUI {
         }
     }
 
-    private void showMenu() {
+    private static void showMenu() {
         System.out.println("Menu.");
         System.out.println("0. Add new Item");
         System.out.println("1. Show all items");
@@ -56,7 +56,7 @@ public class StartUI {
         System.out.println("6. Exit Program");
     }
 
-    private void showItem0(Input input, Tracker tracker) {
+    private static void showItem0(Input input, Tracker tracker) {
         System.out.println("=== Add new Item ====");
         System.out.print("Enter name: ");
         String name = input.askStr("");
@@ -64,12 +64,12 @@ public class StartUI {
         System.out.println("complete");
     }
 
-    private void showItem1(Input input, Tracker tracker) {
+    private static void showItem1(Input input, Tracker tracker) {
         System.out.println("=== Show all items ===");
         System.out.println(tracker.itemsToString(tracker.findAll()));
     }
 
-    private void showItem2(Input input, Tracker tracker) {
+    private static void showItem2(Input input, Tracker tracker) {
         System.out.println("=== Edit item ===");
         System.out.print("Enter Id: ");
         int id =  Integer.valueOf(input.askStr(""));
@@ -78,14 +78,14 @@ public class StartUI {
         System.out.println((tracker.replace(id, new Item(name))) ? "Ok" : "Err edit");
     }
 
-    private void showItem3(Input input, Tracker tracker) {
+    private static void showItem3(Input input, Tracker tracker) {
         System.out.println("=== Delete item ===");
         System.out.print("Enter Id: ");
         int id =  Integer.valueOf(input.askStr(""));
         System.out.println((tracker.delete(id)) ? "Ok" : "Err del");
     }
 
-    private void showItem4(Input input, Tracker tracker) {
+    private static void showItem4(Input input, Tracker tracker) {
         System.out.println("=== Find item by Id ===");
         System.out.print("Enter Id: ");
         int id =  Integer.valueOf(input.askStr(""));
@@ -93,7 +93,7 @@ public class StartUI {
         System.out.println((item != null) ? item : "not found id:" + id);
     }
 
-    private void showItem5(Input input, Tracker tracker) {
+    private static void showItem5(Input input, Tracker tracker) {
         System.out.println("=== Find items by name ===");
         System.out.print("Enter name: ");
         String name = input.askStr("");
