@@ -9,6 +9,16 @@ import static org.junit.Assert.*;
 
 public class StartUITest {
 
+    private UserAction[] actions = {
+            new Create(),
+            new ShowAll(),
+            new Change(),
+            new Remove(),
+            new FindById(),
+            new FindByName(),
+            new Exit()
+    };
+
     @Test
     public void whenAddItem() {
         String[] answers = {"Fix PC"};
@@ -43,6 +53,40 @@ public class StartUITest {
         Input inputDel = new StubInput(new String[]{"1"});
         new Remove().execute(inputDel, tracker);
         assertThat(tracker.findAll().length, is(0));
+    }
+
+    @Test
+    public void whenCreateItem() {
+        Input in = new StubInput(
+                new String[] {"0", "Item name", "6"}
+        );
+        Tracker tracker = new Tracker();
+        new StartUI().init(in, tracker, actions);
+        assertThat(tracker.findAll()[0].getName(), is("Item name"));
+    }
+
+    @Test
+    public void whenReplaceItem() {
+        String replacedName = "New item name";
+        Input in = new StubInput(
+                new String[] {"2", "1", replacedName, "6"}
+        );
+        Tracker tracker = new Tracker();
+
+        Item item = tracker.add(new Item("Replaced item"));
+        new StartUI().init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
+    }
+
+    @Test
+    public void whenDelete1Item() {
+        Input in = new StubInput(
+                new String[] {"3", "1", "6"}
+        );
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Deleted item"));
+        new StartUI().init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
 
 }
