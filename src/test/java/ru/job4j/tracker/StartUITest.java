@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+import ru.job4j.tracker.action.*;
 
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
@@ -13,7 +14,7 @@ public class StartUITest {
         String[] answers = {"Fix PC"};
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
-        StartUI.add(input, tracker);
+        new Create().execute(input, tracker);
         Item created = tracker.findAll()[0];
         Item expected = new Item("Fix PC");
         assertThat(created.getName(), is(expected.getName()));
@@ -23,9 +24,9 @@ public class StartUITest {
     public void whenEditItem() {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"Fix PC"});
-        StartUI.add(input, tracker);
+        new Create().execute(input, tracker);
         Input inputEdit = new StubInput(new String[]{"1", "edit Fix PC"});
-        StartUI.edit(inputEdit, tracker);
+        new Change().execute(inputEdit, tracker);
 
         Item created = tracker.findAll()[0];
         assertThat(created.getName(), is("edit Fix PC"));
@@ -35,12 +36,13 @@ public class StartUITest {
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"Fix PC"});
-        StartUI.add(input, tracker);
+        new Create().execute(input, tracker);
         Item created = tracker.findAll()[0];
         assertThat(created.getName(), is("Fix PC"));
 
         Input inputDel = new StubInput(new String[]{"1"});
-        StartUI.delete(inputDel, tracker);
+        new Remove().execute(inputDel, tracker);
         assertThat(tracker.findAll().length, is(0));
     }
+
 }
