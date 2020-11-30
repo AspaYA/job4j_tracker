@@ -10,10 +10,9 @@ public class TrackerStaticFinalClassTest {
 
     @Test
     public void whenSingelton() {
-        TrackerStaticFinalClass tracker = TrackerStaticFinalClass.getInstance();
+        Tracker tracker = TrackerStaticFinalClass.getInstance().getTracker();
         tracker.add(new Item(5));
-        TrackerStaticFinalClass tracker1 = TrackerStaticFinalClass.getInstance();
+        Tracker tracker1 = TrackerStaticFinalClass.getInstance().getTracker();
         assertThat(tracker.findAll().length, is(tracker1.findAll().length));
     }
-  
 }

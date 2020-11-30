@@ -11,10 +11,9 @@ public class TrackerEnumTest {
 
     @Test
     public void whenSingelton() {
-        TrackerEnum tracker = TrackerEnum.INSTANCE;
+        Tracker tracker = TrackerEnum.INSTANCE.getTracker();
         tracker.add(new Item(5));
-        TrackerEnum tracker1 = TrackerEnum.INSTANCE;
+        Tracker tracker1 = TrackerEnum.INSTANCE.getTracker();
         assertThat(tracker.findAll().length, is(tracker1.findAll().length));
     }
-  
 }
