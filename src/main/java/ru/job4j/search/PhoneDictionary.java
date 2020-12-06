@@ -1,5 +1,6 @@
 package ru.job4j.search;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class PhoneDictionary {
@@ -18,10 +19,17 @@ public class PhoneDictionary {
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
         for (Person person: persons) {
-            if (person.toString().toLowerCase().contains(key.toLowerCase())) {
+            if ((contains(person.getSurname(), key))
+                    || (contains(person.getName(), key))
+                    || (contains(person.getPhone(), key))
+                    || (contains(person.getAddress(), key))) {
                 result.add(person);
             }
         }
         return result;
+    }
+
+    public static boolean contains(String val1, String val2) {
+        return (val1).toLowerCase().contains(val2.toLowerCase());
     }
 }
