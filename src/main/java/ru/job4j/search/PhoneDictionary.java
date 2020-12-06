@@ -29,7 +29,7 @@ public class PhoneDictionary {
         return result;
     }
 
-    public static boolean contains(String val1, String val2) {
-        return (val1).toLowerCase().contains(val2.toLowerCase());
+    public static boolean contains(String source, String check) {
+        return source.toLowerCase().contains(check.toLowerCase());
     }
 }
